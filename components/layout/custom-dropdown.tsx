@@ -2,16 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { PAGES_WITH_TRANSPARENT_HEADER } from "./header";
 
 type CustomDropdownProps = {
   title: string;
-  links: { title: string; href: string }[];
+  links: { title: string; href: string }[];  
 };
 
 export function CustomDropdown({ title, links }: CustomDropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [ isOpen, setIsOpen ] = useState(false);
+  const pathname = usePathname()
+  
+   // This boolean is true if the current page should have a transparent header.
+    const hasTransparentHeader  = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname);
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10, scale: 0.95 },
@@ -25,7 +32,7 @@ export function CustomDropdown({ title, links }: CustomDropdownProps) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center gap-1 text-green-opaque hover:text-brand-green font-medium">
+      <button className={cn( hasTransparentHeader ? "text-white hover:text-yellow-opaque " : "text-green-opaque hover:text-yellow-opaque ",isOpen ? "text-yellow-opaque " : "" ,"flex items-center gap-1 font-medium")}>
         {title}
         <ChevronDown size={16} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </button>

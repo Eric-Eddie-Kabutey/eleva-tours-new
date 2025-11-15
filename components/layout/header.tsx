@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Phone, Mail, MapPin, User, Search, Menu, Facebook, Twitter, Linkedin, Instagram, Youtube
+  Phone, Mail, MapPin, User, Search, Menu, Facebook, Instagram,
 } from "lucide-react";
 
 import { navLinks, socialLinks } from "@/lib/nav-data";
@@ -13,13 +14,24 @@ import { CustomDropdown } from "./custom-dropdown";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 // A map to get icons by name for social links
-const iconMap = { Facebook, Twitter, Linkedin, Instagram, Youtube };
+const iconMap = { Facebook, Instagram, };
+
+// Routes with a hero section with a bg-image - header with a transparent bg
+export const PAGES_WITH_TRANSPARENT_HEADER = [
+    '/',    
+  // add other routers (full path) here
+];
 
 export function Header() {
   const [showTopBanner, setShowTopBanner] = useState(true);
   const [isNavSticky, setIsNavSticky] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [ isMobileMenuOpen, setIsMobileMenuOpen ] = useState(false);
+  const pathname = usePathname()
+  
+  // This boolean is true if the current page should have a transparent header.
+  const hasTransparentHeader  = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,13 +69,13 @@ export function Header() {
           >
             {/* The diagonal green part is a pseudo-element */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 right-0 h-full w-1/3 bg-brand-green transform -skew-x-12 origin-top-right" />
+                <div className="absolute top-0 right-0 h-full w-1/3 bg-yellow-opaque transform -skew-x-12 origin-top-right" />
             </div>
             <div className="container mx-auto px-4 h-12 flex items-center justify-between relative">
                 <div className="flex items-center gap-6 text-sm">
                     <a href="tel:256214203215" className="flex items-center gap-2"><Phone size={16} /> 256 214 203 215</a>
-                    <a href="mailto:info@travon.com" className="hidden md:flex items-center gap-2"><Mail size={16} /> info@travon.com</a>
-                    <p className="hidden lg:flex items-center gap-2"><MapPin size={16} /> 9550 Bolsa Ave #126, United States</p>
+                    <a href="mailto:info@travon.com" className="hidden md:flex items-center gap-2"><Mail size={16} /> info@elevatours.com</a>
+                    <p className="hidden lg:flex items-center gap-2"><MapPin size={16} /> 9550 Bolsa Ave #126, Ghana</p>
                 </div>
                 <div className="flex items-center gap-6 text-sm">
                     <a href="/login" className="flex items-center gap-2"><User size={16} /> Login / Register</a>
@@ -106,7 +118,7 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-8">
                 {navLinks.map(nav => nav.links ?
                     <CustomDropdown key={nav.title} title={nav.title} links={nav.links} /> :
-                    <Link key={nav.title} href={nav.href || '#'} className="text-gray-700 hover:text-brand-green font-medium">{nav.title}</Link>
+                    <Link key={nav.title} href={nav.href || '#'} className={cn(hasTransparentHeader ? "text-white hover:text-yellow-opaque " : "text-gray-700", "font-medium")}>{nav.title}</Link>
                 )}
             </div>
 
