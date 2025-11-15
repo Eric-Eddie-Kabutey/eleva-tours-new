@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { fontRoboto, fontPlayfair, fontDancingScript } from '@/lib/fonts';
 import "./globals.css";
 import { generateMetadata } from "./metadata";
 import { Header } from "@/components/layout/header";
@@ -61,7 +62,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(OrganizationSchema) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fontRoboto.variable} ${fontPlayfair.variable} ${fontDancingScript.variable} antialiased`}>
           <Header />
           {children}                    
         
