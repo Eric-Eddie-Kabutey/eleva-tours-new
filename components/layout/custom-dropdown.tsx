@@ -1,0 +1,58 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+
+type CustomDropdownProps = {
+  title: string;
+  links: { title: string; href: string }[];
+};
+
+export function CustomDropdown({ title, links }: CustomDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2 } },
+    exit: { opacity: 0, y: -10, scale: 0.95, transition: { duration: 0.15 } },
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <button className="flex items-center gap-1 text-green-opaque hover:text-brand-green font-medium">
+        {title}
+        <ChevronDown size={16} className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={dropdownVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute top-full left-[0%] -translate-x-[0%] mt-2 w-44 origin-top rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <div className="py-1">
+              {links.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  className="block px-4 py-2 text-sm text-green-opaque hover:bg-yellow-opaque hover:text-green-opaque"
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
