@@ -79,7 +79,7 @@ export function Hero() {
 							</motion.p>
 							<motion.h1
 								variants={textVariants}
-								className='text-5xl md:text-7xl font-bold font-serif leading-tight mt-2'>
+								className='text-5xl md:text-7xl font-semibold font-title leading-tight mt-2'>
 								{currentSlide.titleLine1} <br /> {currentSlide.titleLine2}
 							</motion.h1>
 							<motion.p variants={textVariants} className='mt-4 max-w-lg'>
