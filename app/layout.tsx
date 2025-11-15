@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = generateMetadata({
-  title: "Elava Tour | Discover the World with Unforgettable Travel Experiences",
+  title: "Eleva Tour | Discover the World with Unforgettable Travel Experiences",
   description:
     "Elava Tour brings you closer to the world’s most breathtaking destinations with personalized travel packages, guided tours, and unforgettable adventures designed just for you.",
   url: "/",
@@ -23,7 +23,7 @@ export const metadata = generateMetadata({
 const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Elava Tour",
+  "name": "Eleva Tour",
   "url": "https://www.elavatour.com",
   "logo": "https://elavatour.s3.amazonaws.com/images/elavatour-logo.png",
   "sameAs": [
@@ -37,7 +37,7 @@ const OrganizationSchema = {
   "foundingDate": "2020",
   "founder": {
     "@type": "Person",
-    "name": "Elava Tour Team"
+    "name": "Eleva Tour Team"
   },
   "contactPoint": {
     "@type": "ContactPoint",

@@ -1,9 +1,9 @@
 {
-  "name": "KtechHub",
-  "short_name": "KtechHub",
-  "description": "Empowering businesses with tailored tech solutions",
+  "name": "Eleva Tours",
+  "short_name": "Eleva Tours",
+  "description": "Eleva Tour | Discover the World with Unforgettable Travel Experiences",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000"
+  "theme_color": "#e69f23"
 }
