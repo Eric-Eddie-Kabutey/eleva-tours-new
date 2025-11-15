@@ -124,7 +124,7 @@ export function Header() {
 
             {/* Icons */}
             <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon" className="rounded-full h-12 w-12"><Search /></Button>
+                <Button variant="outline" size="icon" className="rounded-full h-12 w-12 hover:text-yellow-opaque border hover:border-yellow-opaque"><Search  /></Button>
                 {/* Mobile Menu Trigger */}
                 <div className="lg:hidden">
                     <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
