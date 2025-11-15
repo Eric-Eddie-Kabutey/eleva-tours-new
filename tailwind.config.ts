@@ -13,7 +13,8 @@ export default {
   			'app-primary': '#313131',
   			'app-secondary': '#564f49',
   			background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',				
+				foreground: 'hsl(var(--foreground))',	
+				'brand-dark': '#2c3e50', // A dark navy/charcoal for the top banner
 				'yellow-opaque': '#e69f23',
 				'yellow-opaque-hover': '#e69f28',
 				'green-opaque': '#11351c',
