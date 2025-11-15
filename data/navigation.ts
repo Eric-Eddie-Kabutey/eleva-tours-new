@@ -1,0 +1,150 @@
+import navImg1 from "@/public/assets/images/home/handpicked_1.png";
+import navImg2 from "@/public/assets/images/home/handpicked_2.png";
+import navImg3 from "@/public/assets/images/home/handpicked_3.png";
+import { StaticImageData } from "next/image";
+
+export type NavLinkItem = {
+  title: string;
+  href: string;
+  description: string;  
+  current?: {
+    title: string;
+    href: string;
+    img?: StaticImageData | string;
+    description: string;
+  }[];
+};
+
+export type NavColumn = {
+  title: string;
+  links: NavLinkItem[];
+};
+
+// The main type for each top-level navigation item
+export type NavigationItem = {
+  title: string;  
+  href?: string; // Optional for dropdown triggers
+  description?: string; // Optional
+  links?: NavLinkItem[]; // For single-list dropdowns like "Trip Types"
+  columns?: NavColumn[]; // For multi-column dropdowns like "Tours"
+};
+
+// The refactored data using the types above
+export const navigationData: NavigationItem[] = [
+  {
+    title: "Destinations",    
+    columns: [
+      { 
+        title: "All Destinations",
+        links: [
+          {
+            title: "South Africa",
+            href: "/tours/south-africa",
+            description: "Witness breathtaking landscapes and diverse wildlife.",
+            current: [
+                {
+                    title: "South African Tour",
+                    img: navImg1,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Ghana Tour",
+                    img: navImg2,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Kenya Tour",
+                    img: navImg3,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+            ]
+          },
+          {
+            title: "Ghana",
+            href: "/tours/ghana",
+            description: "Explore the vibrant culture and history of Ghana.",
+            current: [
+                {
+                    title: "South African Tour",
+                    img: navImg1,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Ghana Tour",
+                    img: navImg2,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Kenya Tour",
+                    img: navImg3,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+            ]
+          },
+          {
+            title: "Kenya",
+            href: "/tours/kenya",
+            description: "Discover the magic of savannahs and wildlife safaris.",
+            current: [
+                {
+                    title: "South African Tour",
+                    img: navImg1,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Ghana Tour",
+                    img: navImg2,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+                {
+                    title: "Kenya Tour",
+                    img: navImg3,
+                    href: "/tours/south-africa",
+                    description: "Experience the Rainbow Nation — vibrant cities, safaris, and coastlines.",
+                },
+            ]
+          },
+        ],
+      },
+    ],
+  },   
+  {
+    title: "Trip Types",
+    href: "#",    
+    links: [
+      { title: "Solo Trips", href: "/trip-types/all-inclusive", description: "Witness breathtaking landscapes and diverse wildlife." },
+      { title: "Group Tours", href: "/tours/ghana", description: "Explore the vibrant culture and history of Ghana." },
+      { title: "Family Holidays", href: "/tours/kenya", description: "Discover the magic of savannahs and wildlife safaris." },
+    ],
+  },
+  {
+    title: "Deals",
+    href: "/deals",    
+    links: [
+      { title: "Trip Saving ", href: "/deals/trip-saving", description: "Make a Deposit for next Trip " },
+      { title: "Loyalty Discount ", href: "/deals/loyalty-discount", description: "Get 10% Discount on Next Trip" },
+      { title: "Student Discounts", href: "/deals/student-discounts", description: "Get Student travel voucher" },
+    ],
+  },
+  {
+    title: "About",
+    href: "/about-us",    
+  },
+  {
+    title: "Insights",
+    href: "/insights",    
+    links: [
+      { title: "News & Stories", href: "/news", description: "Read the latest stories from our travels." },
+      { title: "Client Feedback", href: "/clients-feedback", description: "A visual journey through our amazing destinations." },
+      { title: "Media", href: "/tour-media", description: "A visual journey through our amazing destinations." },
+    ],
+  },
+];
