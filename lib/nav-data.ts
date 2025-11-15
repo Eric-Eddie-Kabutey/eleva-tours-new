@@ -26,9 +26,6 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
-    { name: 'Facebook', href: '#', icon: 'Facebook' },
-    { name: 'Twitter', href: '#', icon: 'Twitter' },
-    { name: 'LinkedIn', href: '#', icon: 'Linkedin' },
-    { name: 'Instagram', href: '#', icon: 'Instagram' },
-    { name: 'Youtube', href: '#', icon: 'Youtube' },
+    { name: 'Facebook', href: '#', icon: 'Facebook' },    
+    { name: 'Instagram', href: '#', icon: 'Instagram' },    
 ];
