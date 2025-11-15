@@ -1,6 +1,13 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 export default {
+	fontFamily: {
+		// Use spread syntax to keep the default sans-serif fonts as fallbacks
+		body: [ 'var(--font-roboto)', ...fontFamily.sans ],
+		title: [ 'var(--font-playfair)', ...fontFamily.serif ],
+		style: [ 'var(--font-dancing-script)', ...fontFamily.sans ],
+	},
     darkMode: ["class"],
     content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
