@@ -20,7 +20,9 @@ const iconMap = { Facebook, Instagram, };
 
 // Routes with a hero section with a bg-image - header with a transparent bg
 export const PAGES_WITH_TRANSPARENT_HEADER = [
-    '/',    
+  '/',   
+  '/destination/ghana',
+  '/destination/south-africa'
   // add other routers (full path) here
 ];
 
