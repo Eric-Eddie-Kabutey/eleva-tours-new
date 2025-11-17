@@ -63,7 +63,7 @@ export function Hero() {
 			</div>
 
 			{/* Content Overlay */}
-			<div className='relative z-10 h-full flex flex-col justify-center container mx-auto px-4'>
+			<div className='relative z-10 h-full flex flex-col justify-center container max-w-6xl 2xl:max-w-7xl mx-auto px-4'>
 				<div className='max-w-2xl'>
 					<AnimatePresence mode='wait'>
 						<motion.div
@@ -100,8 +100,8 @@ export function Hero() {
 
 			{/* Search Form Section */}
 			<div className='absolute bottom-0 left-0 right-0 z-20'>
-				<div className='container mx-auto px-4'>
-					<div className='bg-brand-green p-6 rounded-t-lg'>
+				<div className='container max-w-6xl 2xl:max-w-7xl mx-auto px-4'>
+					<div className='bg-brand-green py-6 rounded-t-lg'>
 						<div className='flex gap-2 mb-4'>
 							<Button
 								onClick={() => setActiveTab('flights')}
