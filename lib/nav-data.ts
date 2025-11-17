@@ -4,8 +4,8 @@ export const navLinks = [
     {
         title: "Destinations",
         links: [
-            { title: "Ghana", href: "/destinations/ghana" },
-            { title: "South Africa", href: "/destinations/south-africa" },
+            { title: "Ghana", href: "/destination/ghana" },
+            { title: "South Africa", href: "/destination/south-africa" },
         ]
     },
     {
