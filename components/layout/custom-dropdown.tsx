@@ -11,7 +11,7 @@ import { PAGES_WITH_TRANSPARENT_HEADER } from "./header";
 type CustomDropdownProps = {
   title: string;
   links: { title: string; href: string }[];  
-  isNavSticky: boolean
+  isNavSticky?: boolean
 };
 
 export function CustomDropdown({ title,links, isNavSticky }: CustomDropdownProps) {
