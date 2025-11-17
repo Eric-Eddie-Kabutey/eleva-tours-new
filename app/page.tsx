@@ -8,7 +8,6 @@ import { Deals } from "@/components/deals";
 import Image from "next/image";
 import { ExperienceCta } from "@/components/home/experience-cta";
 import { TestimonialsSlider } from "@/components/testimonials/testimonials-slider";
-import FooterCta from "@/components/layout/footer-cta";
 
 export default function Home() {
     return (<>
@@ -45,8 +44,6 @@ export default function Home() {
           <TestimonialsSlider />
         </div>
         </section>
-        
-        {/* CTA section */}
-        <FooterCta />
+                
     </>)
 }
