@@ -15,7 +15,7 @@ export default function AboutUsPage() {
 				title='About Us'
 				breadcrumbs={[
 					{ label: 'Home', href: '/' },
-					{ label: 'About Uus', href: '/about-us' },
+					{ label: 'About Us', href: '/about-us' },
 				]}
 				imageUrl='/assets/images/page-banner-img.jpg'
 			/>
