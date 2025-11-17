@@ -46,7 +46,7 @@ export function PageHero({ title, breadcrumbs, imageUrl }: PageHeroProps) {
                       href={crumb.href}
                       className={
                         isLast
-                          ? "font-semibold text-green-opaque" 
+                          ? "font-semibold text-white" 
                           : "hover:underline"
                       }
                       // The last item in a breadcrumb shouldn't be a link
