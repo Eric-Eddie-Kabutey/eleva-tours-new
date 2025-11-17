@@ -102,6 +102,55 @@ export function Header() {
         <div className="container mx-auto px-4 h-24 flex justify-between items-center">
           {/* Logo is now inside the sticky nav, but for the main page we have a different layout */}
           {/* Main Logo for Sticky and Other pages */}
+           <div className="container mx-auto px-4 h-24 flex justify-between items-center">
+            {/* The diagonal background for the logo */}
+            <div className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-white via-brand-green-light/50 to-transparent transform -skew-x-12 -translate-x-1/4" />
+            <Link href="/" className="relative z-10">
+                <Image src="/assets/logo/elavatour-logo-colored.png" alt="Travon Logo" width={150} height={50} />
+            </Link>
+
+            {/* Desktop Nav Links */}
+            <div className="hidden lg:flex items-center gap-8">
+                {navLinks.map(nav => nav.links ?
+                    <CustomDropdown key={nav.title} title={nav.title} links={nav.links} isNavSticky={isNavSticky} /> :
+                    <Link key={nav.title} href={nav.href || '#'} className={cn(hasTransparentHeader ? "text-green-opaque hover:text-yellow-opaque " : "text-gray-700", "font-medium")}>{nav.title}</Link>
+                )}
+            </div>
+
+            {/* Icons */}
+            <div className="flex items-center gap-2">
+                <Button variant="outline" size="icon" className="rounded-full h-12 w-12 hover:text-yellow-opaque border hover:border-yellow-opaque"><Search  /></Button>
+                {/* Mobile Menu Trigger */}
+                <div className="lg:hidden">
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                        <SheetTrigger asChild>
+                             <Button variant="outline" size="icon" className="rounded-full h-12 w-12"><Menu /></Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="w-full p-0">
+                            {/* Mobile Menu Content */}
+                             <div className="p-6">
+                                <Accordion type="single" collapsible className="w-full">
+                                {navLinks.map(nav => nav.links ? (
+                                    <AccordionItem value={nav.title} key={nav.title}>
+                                        <AccordionTrigger>{nav.title}</AccordionTrigger>
+                                        <AccordionContent>
+                                            <ul className="pl-4">
+                                            {nav.links.map(link => (
+                                                <li key={link.title}><Link href={link.href} className="block py-2">{link.title}</Link></li>
+                                            ))}
+                                            </ul>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ) : (
+                                    <Link key={nav.title} href={nav.href || '#'} className="block py-4 border-b">{nav.title}</Link>
+                                ))}
+                                </Accordion>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+                </div>
+            </div>
+        </div>
         </div>
       </motion.nav>
 
