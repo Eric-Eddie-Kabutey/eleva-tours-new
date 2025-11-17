@@ -74,7 +74,7 @@ export function Header() {
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 right-0 h-full w-1/3 bg-yellow-opaque transform -skew-x-12 origin-top-right" />
             </div>
-            <div className="container mx-auto px-4 h-12 flex items-center justify-between relative">
+            <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-12 flex items-center justify-between relative">
                 <div className="flex items-center gap-6 text-sm">
                     <a href="tel:256214203215" className="flex items-center gap-2"><Phone size={16} /> 256 214 203 215</a>
                     <a href="mailto:info@travon.com" className="hidden md:flex items-center gap-2"><Mail size={16} /> info@elevatours.com</a>
@@ -102,10 +102,10 @@ export function Header() {
         animate={isNavSticky ? "visible" : "hidden"}
         className="fixed top-0 left-0 right-0 z-30 bg-white shadow-md"
       >
-        <div className="container mx-auto px-4 h-24 flex justify-between items-center">
+        <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
           {/* Logo is now inside the sticky nav, but for the main page we have a different layout */}
           {/* Main Logo for Sticky and Other pages */}
-           <div className="container mx-auto px-4 h-24 flex justify-between items-center">
+           <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
             {/* The diagonal background for the logo */}
             <div className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-white via-brand-green-light/50 to-transparent transform -skew-x-12 -translate-x-1/4" />
             <Link href="/" className="relative z-10">
@@ -159,7 +159,7 @@ export function Header() {
 
       {/* --- HERO NAVIGATION (visible at top of page) --- */}
       <div className="absolute top-12 left-0 right-0 z-20">
-        <div className="container mx-auto px-4 h-24 flex justify-between items-center">
+        <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
             {/* The diagonal background for the logo */}
             <div className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-white via-brand-green-light/50 to-transparent transform -skew-x-12 -translate-x-1/4" />
             <Link href="/" className="relative z-10">
