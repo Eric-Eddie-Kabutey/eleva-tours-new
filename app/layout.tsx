@@ -3,6 +3,7 @@ import { fontRoboto, fontPlayfair, fontDancingScript } from '@/lib/fonts';
 import "./globals.css";
 import { generateMetadata } from "./metadata";
 import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,7 +66,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${fontRoboto.variable} ${fontPlayfair.variable} ${fontDancingScript.variable} antialiased`}>
           <Header />
           {children}                    
-        
+          <Footer />
       </body>
     </html>
   );
