@@ -24,9 +24,9 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   '/about-us',
   '/destination/ghana',
   '/destination/south-africa',
-  'tours/family',
-  'tours/group',
-  'tours/solo'
+  '/tours/family',
+  '/tours/group',
+  '/tours/solo'
   // add other routers (full path) here
 ];
 
