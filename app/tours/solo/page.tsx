@@ -1,9 +1,9 @@
-"use client"; 
 /* eslint-disable @typescript-eslint/no-unused-vars */
+"use client"; 
+
 import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { toursData } from '@/lib/tours-data';
-import { destinationsData } from '@/data/destinations-data';
 import { PageHero } from '@/components/shared/page-hero';
 import { TourCard } from '@/components/tours/tour-card';
 import { TourCategoriesWidget } from '@/components/tours/tour-categories-widget';
@@ -20,8 +20,8 @@ export default function AllToursPage() {
   const [currentPage, setCurrentPage] = useState(1);
   
   // Filter and paginate data
-  const filteredTours = destinationsData.filter(tour => 
-    tour.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredTours = toursData.filter(tour => 
+    tour.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const totalPages = Math.ceil(filteredTours.length / ITEMS_PER_PAGE);
   const currentTours = filteredTours.slice(
@@ -32,7 +32,7 @@ export default function AllToursPage() {
   return (
     <main>
       <PageHero
-        title="Family Tour"
+        title="Solo Tour"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tours", href: "/tours" }]}
         imageUrl="/assets/images/page-banner-img.jpg"
       />
