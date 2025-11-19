@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image'
 import Link from 'next/link'
 import { popularToursData } from '@/lib/popular-tours-data'
@@ -78,11 +79,11 @@ export function PopularTours() {
 					</h2>
 				</div>
 
-				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+				{/* <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
 					{popularToursData.map((tour) => (
 						<TourCard key={tour.id} tour={tour} />
 					))}
-				</div>
+				</div> */}
 			</div>
 		</section>
 	)
