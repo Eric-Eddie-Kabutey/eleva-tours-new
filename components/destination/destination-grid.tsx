@@ -1,23 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { allDestinationsData, Destination } from "@/lib/destinations-data";
 import { DestinationCard } from "./destination-card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import { Tour } from "@/data/destinations-data";
 
 const ITEMS_PER_PAGE = 8;
 
-export function DestinationsGrid() {
+interface DestinationGridPrp {
+  tours: Tour[];
+}
+
+export function DestinationsGrid({ tours }: DestinationGridPrp) {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("default");
-  const [displayedDestinations, setDisplayedDestinations] = useState<Destination[]>([]);
+  const [displayedTours, setDisplayedTours] = useState<Tour[]>([]);
 
-  const totalDestinations = allDestinationsData.length;
+  const totalDestinations = tours.length;
   const totalPages = Math.ceil(totalDestinations / ITEMS_PER_PAGE);
 
   useEffect(() => {
-    const sortedData = [...allDestinationsData];
+    const sortedData = [...tours];
 
     switch (sortOrder) {
       case "popularity":
@@ -42,9 +46,10 @@ export function DestinationsGrid() {
 
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    setDisplayedDestinations(sortedData.slice(startIndex, endIndex));
+    setDisplayedTours(sortedData.slice(startIndex, endIndex));
+    
 
-  }, [currentPage, sortOrder]);
+  }, [currentPage, sortOrder, tours]);
 
   const handleSortChange = (value: string) => {
     setSortOrder(value);
@@ -62,7 +67,7 @@ export function DestinationsGrid() {
       {/* Header with info and sorting */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
         <p className="text-gray-600">
-          Showing {displayedDestinations.length} out of {totalDestinations} destination
+          Showing {displayedTours.length} out of {totalDestinations} destination
         </p>
         <Select onValueChange={handleSortChange} defaultValue="default">
           <SelectTrigger className="w-[180px]">
@@ -79,15 +84,17 @@ export function DestinationsGrid() {
         </Select>
       </div>
 
-      {/* Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {displayedDestinations.map((dest) => (
-          <DestinationCard key={dest.id} destination={dest} />
-        ))}
-      </div>
+      {/* Responsive Grid */}    
+      {displayedTours.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {displayedTours.map((tour) => (
+            <DestinationCard key={tour.id} tour={tour} />
+          ))}
+        </div>
+      ) : ( <p className="text-green-opaque text-lg">No tours found</p> )}
 
       {/* Pagination */}
-      <div className="mt-12">
+     {totalPages > 1 && ( <div className="mt-12">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
@@ -105,7 +112,7 @@ export function DestinationsGrid() {
             </PaginationItem>
           </PaginationContent>
         </Pagination>
-      </div>
+      </div>)}
     </div>
   );
 }
