@@ -25,7 +25,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   '/destination',
   '/destination/ghana',
   '/destination/south-africa',
-  '/tour/',
+  '/tours',
   '/tours/family',
   '/tours/group',
   '/tours/solo',
