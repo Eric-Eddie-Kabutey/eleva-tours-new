@@ -17,7 +17,7 @@ type PageHeroProps = {
 
 export function PageHero({ title, breadcrumbs, imageUrl }: PageHeroProps) {
   return (
-    <section className="relative h-[40vh] min-h-[300px] w-full flex items-center justify-center text-white mt-[48px]">
+    <section className="relative h-[40vh] min-h-[350px] w-full flex items-center justify-center text-white mt-[48px]">
       {/* 1. Background Image */}
       <Image
         src={imageUrl}
@@ -28,10 +28,10 @@ export function PageHero({ title, breadcrumbs, imageUrl }: PageHeroProps) {
       />
       
       {/* 2. Dark Overlay */}
-      <div className="absolute inset-0  z-10" />     
+      <div className="absolute inset-0  z-5" />     
 
       {/* 4. Main Content */}
-      <div className="relative z-30 text-center">
+      <div className="relative z-10 text-center pt-8">
         <h2 className="font-title text-5xl md:text-6xl font-bold">{title}</h2>
         
         {/* Breadcrumbs */}
