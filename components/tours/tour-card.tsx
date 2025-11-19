@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Star, Clock, Users, ArrowRight } from "lucide-react";
-import { PopularTour } from "@/lib/popular-tours-data";
 import { Button } from "@/components/ui/button";
+import { Tour } from "@/data/destinations-data";
 
 type TourCardProps = {
-  tour: PopularTour;
+  tour: Tour;
 };
 
 // Helper to format currency
@@ -19,7 +19,7 @@ export function TourCard({ tour }: TourCardProps) {
       <div className="relative">
         <div className="relative w-full aspect-[4/3]">
           <Image
-            src={tour.imageUrl}
+            src={tour.mainImageUrl || ""}
             alt={tour.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -44,19 +44,19 @@ export function TourCard({ tour }: TourCardProps) {
         </div>
         
         <h3 className="font-title text-xl font-bold text-brand-dark mt-3 group-hover:text-brand-green transition-colors">
-          <Link href={tour.href}>{tour.title}</Link>
+          <Link href={tour.slug || ""}>{tour.title}</Link>
         </h3>
 
         <div className="flex items-center gap-4 text-sm text-gray-600 mt-3">
-          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> {tour.durationDays} Days</div>
-          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> {tour.capacity}+ People</div>
+          <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> {tour.duration} Days</div>
+          <div className="flex items-center gap-2"><Users className="h-4 w-4" /> {tour.groupSize}+ People</div>
         </div>
 
         <div className="border-t my-4" />
 
         <div className="flex justify-between items-center mt-auto">
           <p className="text-gray-600 text-sm">From <span className="text-brand-green font-bold text-lg">{formatCurrency(tour.price)}</span></p>
-          <Link href={tour.href} className="text-brand-dark font-semibold text-sm flex items-center gap-1 group-hover:text-brand-green transition-colors">
+          <Link href={tour.slug || ""} className="text-brand-dark font-semibold text-sm flex items-center gap-1 group-hover:text-brand-green transition-colors">
             See Details <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

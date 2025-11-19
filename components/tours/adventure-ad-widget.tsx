@@ -6,11 +6,11 @@ export function AdventureAdWidget() {
   return (
     <div className="relative p-8 rounded-lg overflow-hidden text-white bg-brand-dark">
       {/* Decorative shapes */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-green/80 rounded-full filter blur-2xl" />
-      <div className="absolute -bottom-16 -left-10 w-48 h-48 bg-brand-green/60 rounded-full filter blur-2xl" />
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-opaque rounded-full filter blur-2xl" />
+      <div className="absolute -bottom-16 -left-10 w-48 h-48 bg-yellow-opaque rounded-full filter blur-2xl" />
       
       <div className="relative z-10 text-center">
-        <Image src="/travon-logo-white.png" alt="Travon Logo" width={100} height={40} className="mx-auto" />
+        <Image src="/assets/logo/elavatour-logo-white.png" alt="Travon Logo" width={100} height={40} className="mx-auto" />
         <p className="mt-4 text-sm font-semibold">HAPPY HOLIDAY</p>
         <h3 className="mt-2 text-2xl font-bold">Adventure Ture</h3>
         <div className="mt-4 bg-white/20 p-3 rounded-lg">
