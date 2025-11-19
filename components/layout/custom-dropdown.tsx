@@ -45,14 +45,14 @@ export function CustomDropdown({ title,links, isNavSticky }: CustomDropdownProps
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute top-full left-[0%] -translate-x-[0%] mt-2 w-44 origin-top rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="absolute top-full left-[0%] -translate-x-[0%] mt-2 w-44 origin-top rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
           >
             <div className="py-1">
               {links.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="block px-4 py-2 text-sm text-green-opaque hover:bg-yellow-opaque hover:text-green-opaque"
+                  className="block px-4 py-2 text-sm text-green-opaque hover:bg-yellow-opaque hover:text-green-opaque z-50"
                 >
                   {link.title}
                 </Link>
