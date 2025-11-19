@@ -5,11 +5,17 @@ export type TourPlanDay = {
 	details: string
 }
 
+export type TourType = {
+	type: 'group' | 'family' | 'solo'
+}
+
 // Represents a single, bookable tour package
 export type Tour = {
 	id: string
 	slug: string
 	title: string
+
+	type: 'group' | 'family' | 'solo'; // 
 
 	// For the tour card grids
 	price: number
@@ -83,6 +89,7 @@ export const destinationsData: Destination[] = [
 						id: 'tour-accra-heritage',
 						slug: 'accra-city-heritage',
 						title: 'Accra City Heritage Tour',
+						type: 'family',
 						price: 250,
 						location: 'Accra, Ghana',
 						duration: '10 Days, 11 Nights',
@@ -135,8 +142,9 @@ export const destinationsData: Destination[] = [
 					},
 					{
 						id: 'accra-city-experience',
-						slug: 'accra-city-heritage',
+						slug: 'accra-city-experience',
 						title: 'Accra City Experience',
+						type: 'group',
 						price: 200,
 						location: 'Accra, Ghana',
 						duration: '5 Days, 6 Nights',
@@ -201,6 +209,7 @@ export const destinationsData: Destination[] = [
 						id: 'tour-kakum-national-park',
 						slug: 'kakum-canopy-walk',
 						title: 'Kakum National Park Adventure',
+						type: 'group',
 						price: 450,
 						location: 'Cape Coast, Ghana',
 						duration: '3 Days, 2 Nights',
@@ -253,6 +262,7 @@ export const destinationsData: Destination[] = [
 						id: 'tour-kruger-classic',
 						slug: 'kruger-classic-safari',
 						title: 'The Kruger Classic Safari',
+						type: 'solo',
 						price: 1800,
 						location: 'Kruger National Park',
 						duration: '5 Days, 4 Nights',
