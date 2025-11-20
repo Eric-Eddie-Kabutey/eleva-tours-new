@@ -24,6 +24,7 @@ export type Tour = {
 	groupSize: number
 	rating: number
 	popularity: number
+	category: string;
 	dateAdded: Date
 	mainImageUrl: string
 
@@ -61,11 +62,17 @@ export type Destination = {
 	activityCategories: ActivityCategory[]
 }
 
-// lib/destinations-data.ts
+export const tourCategories = [
+	{ name: "Hill Tracking", slug: "hill-tracking", count: 8 },
+	{ name: "Adventure", slug: "adventure", count: 5 },
+	{ name: "Village Beauty", slug: "village-beauty", count: 6 },
+	{ name: "Night View", slug: "night-views", count: 8 },
+	{ name: "Religious Place", slug: "religious-place", count: 7 },
+	{ name: "Lake View", slug: "lake-view", count: 3 },
+	{ name: "Sea Area", slug: "sea-area", count: 5 },
+	{ name: "Resort", slug: "resort", count: 4 }, 
+];
 
-// (Paste the TypeScript types from above here)
-// export type TourPlanDay = { ... };
-// ... etc.
 
 export const destinationsData: Destination[] = [
 	{
@@ -96,6 +103,7 @@ export const destinationsData: Destination[] = [
 						groupSize: 50,
 						rating: 5,
 						popularity: 95,
+						category: 'Lake View',
 						dateAdded: new Date('2023-11-10'),
                         mainImageUrl: '/assets/images/destinations/dest-1.jpg',
 						description: [
@@ -151,6 +159,7 @@ export const destinationsData: Destination[] = [
 						groupSize: 100,
 						rating: 5,
 						popularity: 95,
+						category: 'Religious Place',
 						dateAdded: new Date('2024-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-3.jpg',
 						description: [
@@ -216,6 +225,7 @@ export const destinationsData: Destination[] = [
 						groupSize: 20,
 						rating: 4,
 						popularity: 85,
+						category: 'Hill Tracking',
 						dateAdded: new Date('2024-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-5.jpg', 
 						description: ['...'],
@@ -269,6 +279,7 @@ export const destinationsData: Destination[] = [
 						groupSize: 12,
 						rating: 5,
 						popularity: 85,
+						category: 'Village Beauty',
 						dateAdded: new Date('2025-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-3.jpg', 
 						description: [
