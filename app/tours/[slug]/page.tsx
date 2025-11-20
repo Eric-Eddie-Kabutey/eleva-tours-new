@@ -1,162 +1,80 @@
-'use client'
+import { destinationsData, Tour } from '@/data/destinations-data';
+import { PageHero } from '@/components/shared/page-hero';
+import { TourGridClient } from '@/components/tours/tour-grid-client'; 
+import { notFound } from 'next/navigation';
 
-import { useParams } from 'next/navigation'
-import { destinationsData } from '@/data/destinations-data'
-import { motion } from 'framer-motion'
+const TOUR_TYPES = ['group', 'family', 'solo'];
 
-// Import all your tab components
-import { InformationTab } from '@/components/tours/information-tab'
-import { TourPlanTab } from '@/components/tours/tour-plan-tab'
-import { PhotosTab } from '@/components/tours/photos-tab'
-import { LocationTab } from '@/components/tours/location-tabs'
-import { LastMinuteDealsWidget } from '@/components/tours/last-minute-deals'
-import { AdventureAdWidget } from '@/components/tours/adventure-ad-widget'
-import { useState } from 'react'
-import { BookingForm } from '@/components/tours/booking-form'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { Clock, DollarSign, MapPin, Users } from 'lucide-react'
-import { PageHero } from '@/components/shared/page-hero'
-import LeaveAReplyForm from '@/components/form/leave-a-reply-form'
+// This tells Next.js to pre-build a static page for each tour type.
+export async function generateStaticParams() {
+  return TOUR_TYPES.map(type => ({
+    slug: type,
+  }));
+}
 
-const TABS = ['Information', 'Tour Plan', 'Tour Photos', 'Location']
+// SERVER-SIDE DATA FETCHING AND FILTERING
+async function getToursByType(type: string): Promise<Tour[]> {
+  // Flatten the data to get a single array of all tours
+  const allTours: Tour[] = destinationsData.flatMap(destination => 
+    destination.activityCategories.flatMap(category => category.tours)
+  );
 
-export default function TourDetailPage() {
-	const params = useParams()
-	const [activeTab, setActiveTab] = useState('Information')
+  // Filter the tours based on the provided type
+  if (TOUR_TYPES.includes(type)) {
+    return allTours.filter(tour => tour.type === type);
+  }
 
-	// Find the specific tour from the entire dataset
-	let tour = null
-	for (const dest of destinationsData) {
-		for (const cat of dest.activityCategories) {
-			const foundTour = cat.tours.find((t) => t.slug === params.slug)
-			if (foundTour) {
-				tour = foundTour
-				break
-			}
-		}
-		if (tour) break
-	}
+  // Return all tours if the type is not recognized (or handle as an error)
+  return allTours; 
+}
 
-	if (!tour) {
-		return <div>Tour not found</div>
-	}
+type TourTypePageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
 
-	// Now you have the `tour` object with all its data
-	const renderTabContent = () => {
-		switch (activeTab) {
-			case 'Tour Plan':
-				return <TourPlanTab plan={tour.tourPlan} />
-			case 'Tour Photos':
-				return <PhotosTab gallery={tour.gallery} />
-			case 'Location':
-				return <LocationTab mapUrl={tour.mapEmbedUrl} />
-			default:
-				return <InformationTab tour={tour} />
-		}
-	}
-	return (
-		<>
-			<PageHero
-				title={tour.title}
-				breadcrumbs={[
-					{ label: 'Home', href: '/' },
-					{ label: 'Tours', href: '/tours' }, // You might want this to go to a general list page
-					{ label: tour.location, href: `/tours/${tour.slug}` }, // Add current page to breadcrumb
-				]}
-				imageUrl='/assets/images/page-banner-img.jpg'
-			/>
-			<div className='container max-w-6xl 2xl:max-w-7xl mx-auto py-12 px-4'>
-				<div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
-					{/* Main Content (Left Column) */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						className='lg:col-span-2'>
-						<div className='bg-[#f5f5f5f5] p-6 rounded-lg mb-8'>
-							<h1 className='font-title text-3xl font-bold text-brand-dark mb-4'>
-								{tour.title}
-							</h1>
-							<div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-700'>
-								<div className='flex items-center gap-2'>
-									<DollarSign className='h-5 w-5 text-green-opaque' />{' '}
-									<div>
-										<span className='block text-xs'>From</span>
-										<span className='font-semibold'>${tour.price}</span>
-									</div>
-								</div>
-								<div className='flex items-center gap-2'>
-									<Clock className='h-5 w-5 text-green-opaque' />{' '}
-									<div>
-										<span className='block text-xs'>Duration</span>
-										<span className='font-semibold'>{tour.duration}</span>
-									</div>
-								</div>
-								<div className='flex items-center gap-2'>
-									<MapPin className='h-5 w-5 text-green-opaque' />{' '}
-									<div>
-										<span className='block text-xs'>Location</span>
-										<span className='font-semibold'>{tour.location}</span>
-									</div>
-								</div>
-								<div className='flex items-center gap-2'>
-									<Users className='h-5 w-5 text-green-opaque' />{' '}
-									<div>
-										<span className='block text-xs'>Group Size</span>
-										<span className='font-semibold'>
-											{tour.groupSize}+ People
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
+// THIS IS NOW A SERVER COMPONENT
+export default async function TourTypePage({ params }: TourTypePageProps) {
+    const { slug } = (await params)  
 
-						<div className='relative aspect-[16/9] rounded-2xl overflow-hidden mb-8'>
-							<Image
-								src={tour.mainImageUrl}
-								alt={tour.title}
-								fill
-								className='object-cover'
-							/>
-						</div>
+  // Validate the slug
+  if (!TOUR_TYPES.includes(slug)) {
+    notFound(); // Redirect to 404 page for invalid slugs
+  }
+  
+  // Fetch the pre-filtered data on the server
+  const filteredTours = await getToursByType(slug);
 
-						<div className='flex flex-wrap gap-2 mb-8'>
-							{TABS.map((tab) => (
-								<Button
-									key={tab}
-									onClick={() => setActiveTab(tab)}
-									className={cn(
-										'rounded-lg font-semibold',
-										activeTab === tab
-											? 'bg-green-opaque text-yellow-opaque'
-											: 'bg-gray-200 text-gray-700 hover:bg-yellow-opaque hover:text-green-opaque'
-									)}>
-									{tab}
-								</Button>
-							))}
-						</div>
+  // Create a dynamic, user-friendly title
+  const pageTitle = slug.charAt(0).toUpperCase() + slug.slice(1) + " Tours";
 
-						{/* Render Active Tab Content */}
-                        <div className='mt-8 mb-12'>{renderTabContent()}</div>
-                        
-                        {/* render form */}
-                        <LeaveAReplyForm />
-					</motion.div>
-
-					{/* Sidebar (Right Column) */}
-					<motion.aside
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.2 }}
-						className='space-y-8'>
-						<BookingForm price={tour.price} />
-						<LastMinuteDealsWidget />
-						<AdventureAdWidget />
-					</motion.aside>
-				</div>
-			</div>
-		</>
-	)
+  return (
+    <main>
+      <PageHero
+        title={pageTitle}
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Tours", href: "/tours" },
+            { label: pageTitle, href: `/tours/${slug}` }
+          
+        ]}
+        imageUrl="/assets/images/page-banner-img.jpg"
+      />
+      
+      {/* You could add a server-rendered description here */}
+      <div className="container max-w-6xl 2xl:max-w-7xl mx-auto pt-16 text-center">
+        <h2 className="text-3xl font-bold">{`Discover Our ${pageTitle}`}</h2>
+        <p className="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">
+          {`Explore our curated collection of ${slug} travel experiences, designed for unforgettable memories.`}
+        </p>
+      </div>
+      
+      {/* 
+        Pass the server-filtered data to the interactive client component.
+        The client component will handle its own sorting and pagination.
+      */}
+      <TourGridClient tours={filteredTours} />
+    </main>
+  );
 }
