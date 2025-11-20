@@ -10,6 +10,7 @@ export async function generateStaticParams() {
     slug: destination.slug,
   }));
 }
+
 type DestinationPageProps = {
   params: Promise<{
     slug: string;
