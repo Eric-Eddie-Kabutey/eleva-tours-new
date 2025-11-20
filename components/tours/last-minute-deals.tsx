@@ -4,7 +4,7 @@ import { lastMinuteDeals } from '@/lib/tours-data';
 
 export function LastMinuteDealsWidget() {
   return (
-    <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+    <div className="bg-[#f5f5f5] p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold text-brand-dark mb-4">Last Minute Deals</h3>
       <div className="space-y-4">
         {lastMinuteDeals.map(deal => (
