@@ -33,7 +33,7 @@ export default function FooterCta() {
 
 				<div className='relative text-center max-w-2xl mx-auto'>
 					<h2 className='font-title text-3xl md:text-4xl font-bold'>
-						Get Special Offers And More From Travon
+						Get Special Offers And More From Eleva Tours
 					</h2>
 					<p className='mt-2 text-white/80'>
 						Sign up now and get the best deals straight in your inbox!
