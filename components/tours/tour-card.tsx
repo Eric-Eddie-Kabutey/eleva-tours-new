@@ -14,6 +14,7 @@ type TourCardProps = {
 const formatCurrency = (amount: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0 }).format(amount);
 
 export function TourCard({ tour }: TourCardProps) {
+   const tourUrl = `/tour/${tour.slug}`;
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden group flex flex-col">
       <div className="relative">
@@ -44,7 +45,7 @@ export function TourCard({ tour }: TourCardProps) {
         </div>
         
         <h3 className="font-title text-xl font-bold text-brand-dark mt-3 group-hover:text-brand-green transition-colors">
-          <Link href={tour.slug || ""}>{tour.title}</Link>
+          <Link href={tourUrl}>{tour.title}</Link>
         </h3>
 
         <div className="flex items-center gap-4 text-sm text-gray-600 mt-3">
@@ -56,7 +57,7 @@ export function TourCard({ tour }: TourCardProps) {
 
         <div className="flex justify-between items-center mt-auto">
           <p className="text-gray-600 text-sm">From <span className="text-brand-green font-bold text-lg">{formatCurrency(tour.price)}</span></p>
-          <Link href={tour.slug || ""} className="text-brand-dark font-semibold text-sm flex items-center gap-1 group-hover:text-brand-green transition-colors">
+          <Link href={tourUrl} className="text-brand-dark font-semibold text-sm flex items-center gap-1 group-hover:text-brand-green transition-colors">
             See Details <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

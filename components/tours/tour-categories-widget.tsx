@@ -1,24 +1,35 @@
-import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
-import { tourCategories } from '@/data/destinations-data';
+"use client";
 
-export function TourCategoriesWidget() {
+import { ChevronRight } from 'lucide-react';
+import { tourCategories } from '@/data/taxonomy-data';
+import { cn } from '@/lib/utils';
+
+type TourCategoriesWidgetProps = {
+    onCategorySelect: (category: string) => void;
+    activeCategory?: string;
+}
+
+export function TourCategoriesWidget({ onCategorySelect, activeCategory }: TourCategoriesWidgetProps) {
   return (
     <div className="bg-[#f5f5f5] p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold text-brand-dark mb-4">Tour Categories</h3>
       <div className="space-y-3">
-        {tourCategories.map(category => (
-          // This now links to a new page with a query parameter
-          <Link 
-            key={category.name} 
-            href={`/tour-media?category=${category.slug}`}
-            className="w-full flex justify-between items-center p-3 bg-white rounded-md shadow-sm hover:bg-brand-green/10 transition-colors text-left"
+        {tourCategories.map(category => (                
+          <button             
+            key={category.slug} 
+            onClick={() => onCategorySelect(category.name)}
+            className={cn("w-full flex justify-between items-center p-3 bg-white rounded-md shadow-sm hover:bg-brand-green/10 transition-colors text-left", activeCategory === category.name ? "border border-green-opaque" : "")}
           >
-            <span>{category.name}({category.count})</span>
+            <span>{category.name} ({category.count})</span>
             <ChevronRight className="h-5 w-5 text-gray-400" />
-          </Link>
+          </button>
         ))}
       </div>
     </div>
   );
 }
+
+
+
+
+          

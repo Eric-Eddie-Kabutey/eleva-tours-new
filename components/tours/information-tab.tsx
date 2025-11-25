@@ -5,6 +5,7 @@ export function InformationTab({ tour }: { tour: FullTourDetails }) {
 	return (
 		<div className='space-y-8'>
 			<div>
+				<h1 className="text-4xl font-bold">{tour.title}</h1>
 				<h3 className='text-2xl font-bold text-brand-dark mb-4'>Description</h3>
 				<div className='space-y-4 text-gray-600 leading-relaxed'>
 					{tour.description.map((p, i) => (

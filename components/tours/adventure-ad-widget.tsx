@@ -10,11 +10,11 @@ export function AdventureAdWidget() {
       <div className="absolute -bottom-16 -left-10 w-48 h-48 bg-yellow-opaque rounded-full filter blur-2xl" />
       
       <div className="relative z-10 text-center">
-        <Image src="/assets/logo/elavatour-logo-white.png" alt="Travon Logo" width={100} height={40} className="mx-auto" />
+        <Image src="/assets/logo/elavatour-logo-white.png" alt="Eleva Tours Logo" width={100} height={40} className="mx-auto" />
         <p className="mt-4 text-sm font-semibold">HAPPY HOLIDAY</p>
         <h3 className="mt-2 text-2xl font-bold">Adventure Ture</h3>
         <div className="mt-4 bg-white/20 p-3 rounded-lg">
-          <p className="text-sm font-semibold">TRAVON SPECIAL</p>
+          <p className="text-sm font-semibold">ELEVA TOURS SPECIAL</p>
           <p className="text-lg font-bold">30% OFF On All Booking</p>
         </div>
         <Button asChild className="mt-6 bg-white text-brand-dark hover:bg-gray-200 font-bold w-full">

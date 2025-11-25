@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea'
 export function BookingForm({ price }: { price: number }) {
 	// Add form handling logic here with react-hook-form if needed
 	return (
-		<div className='bg-gray-50 p-6 rounded-lg shadow-lg  top-24'>
+		<div className='bg-[#f5f5f5] p-6 rounded-lg shadow-lg  top-24'>
 			<div className='bg-green-opaque text-white p-4 rounded-t-lg flex justify-between items-center'>
 				<h3 className='font-bold text-lg'>Book This Tour</h3>
 				<p className='font-semibold'>${price} per person</p>
