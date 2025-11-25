@@ -5,17 +5,15 @@ export type TourPlanDay = {
 	details: string
 }
 
-export type TourType = {
-	type: 'group' | 'family' | 'solo'
-}
-
 // Represents a single, bookable tour package
 export type Tour = {
 	id: string
 	slug: string
 	title: string
 
-	type: 'group' | 'family' | 'solo'; // 
+	type: 'group' | 'family' | 'solo'; // tour types
+	category: string; // This should now match a 'name' from tourCategories
+	tags: string[]; 
 
 	// For the tour card grids
 	price: number
@@ -23,8 +21,7 @@ export type Tour = {
 	duration: string // e.g., "10 Days, 11 Nights"
 	groupSize: number
 	rating: number
-	popularity: number
-	category: string;
+	popularity: number	
 	dateAdded: Date
 	mainImageUrl: string
 
@@ -62,18 +59,7 @@ export type Destination = {
 	activityCategories: ActivityCategory[]
 }
 
-export const tourCategories = [
-	{ name: "Hill Tracking", slug: "hill-tracking", count: 8 },
-	{ name: "Adventure", slug: "adventure", count: 5 },
-	{ name: "Village Beauty", slug: "village-beauty", count: 6 },
-	{ name: "Night View", slug: "night-views", count: 8 },
-	{ name: "Religious Place", slug: "religious-place", count: 7 },
-	{ name: "Lake View", slug: "lake-view", count: 3 },
-	{ name: "Sea Area", slug: "sea-area", count: 5 },
-	{ name: "Resort", slug: "resort", count: 4 }, 
-];
-
-
+// Destinations data 
 export const destinationsData: Destination[] = [
 	{
 		id: 'dest-ghana',
@@ -103,7 +89,8 @@ export const destinationsData: Destination[] = [
 						groupSize: 50,
 						rating: 5,
 						popularity: 95,
-						category: 'Lake View',
+						category: 'Adventure',
+						tags: [ 'Destinations', 'Lifestyle' ],
 						dateAdded: new Date('2023-11-10'),
                         mainImageUrl: '/assets/images/destinations/dest-1.jpg',
 						description: [
@@ -160,6 +147,7 @@ export const destinationsData: Destination[] = [
 						rating: 5,
 						popularity: 95,
 						category: 'Religious Place',
+						tags: [ 'Tourist', 'Hotels' ],
 						dateAdded: new Date('2024-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-3.jpg',
 						description: [
@@ -226,6 +214,7 @@ export const destinationsData: Destination[] = [
 						rating: 4,
 						popularity: 85,
 						category: 'Hill Tracking',
+						tags: [ 'Destinations', 'Lifestyle' ],
 						dateAdded: new Date('2024-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-5.jpg', 
 						description: ['...'],
@@ -280,6 +269,7 @@ export const destinationsData: Destination[] = [
 						rating: 5,
 						popularity: 85,
 						category: 'Village Beauty',
+						tags: [ 'Parks', 'Beach' ],
 						dateAdded: new Date('2025-11-10'),
 						mainImageUrl: '/assets/images/destinations/dest-3.jpg', 
 						description: [
