@@ -5,7 +5,7 @@ import { Textarea } from '../ui/textarea'
 
 export default function LeaveAReplyForm() {
 	return (
-		<div className='bg-[#f5f5f5] p-8 rounded-lg'>
+		<div className='bg-[#f5f5f5] p-8 mt-16 rounded-lg'>
 			<h3 className='text-2xl font-bold text-brand-dark mb-2'>Leave A Reply</h3>
 			<p className='text-gray-500 mb-6'>
 				Your email address will not be published. Required fields are marked *
