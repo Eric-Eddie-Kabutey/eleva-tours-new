@@ -19,7 +19,7 @@ export function CustomDropdown({ title,links, isNavSticky }: CustomDropdownProps
   const pathname = usePathname()
   
    // This boolean is true if the current page should have a transparent header.
-    const hasTransparentHeader  = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname);
+  const hasTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname) || pathname.startsWith('/tour/');;
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10, scale: 0.95 },

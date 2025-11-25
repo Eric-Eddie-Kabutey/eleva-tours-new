@@ -25,10 +25,10 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   '/destination',
   '/destination/ghana',
   '/destination/south-africa',
-  '/tours',
-  '/tours/family',
-  '/tours/group',
-  '/tours/solo',
+  '/tour',
+  '/tour/types/family',
+  '/tour/types/group',
+  '/tour/types/solo',
   '/news',
   '/feedbacks',
   '/tours-media'
@@ -42,7 +42,7 @@ export function Header() {
   const pathname = usePathname()
   
   // This boolean is true if the current page should have a transparent header.
-  const hasTransparentHeader  = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname);
+  const hasTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(pathname) || pathname.startsWith('/tour/');
 
   useEffect(() => {
     const handleScroll = () => {
