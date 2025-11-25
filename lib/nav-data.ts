@@ -11,9 +11,9 @@ export const navLinks = [
     {
         title: "Trip Types",
         links: [
-            { title: "Family Holiday", href: "/tours/family" },
-            { title: "Group Tours", href: "/tours/group" },
-            { title: "Solo Trip", href: "/tours/solo" },
+            { title: "Family Holiday", href: "/tour/types/family" },
+            { title: "Group Tours", href: "/tour/types/group" },
+            { title: "Solo Trip", href: "/tour/types/solo" },
         ]
     },    
     {
