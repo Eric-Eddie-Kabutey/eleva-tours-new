@@ -29,20 +29,20 @@ export function MediaSidebar({
 	return (
 		<aside className='space-y-8'>			
             {/* Search Widget */}
-            <div className="relative">
+			<div className="relative bg-[#f5f5f5]">
                 <Input 
                     placeholder="Enter Keyword" 
-                    className="h-12 pl-4 pr-12"
+					className="h-12 pl-4 pr-12"
                     // Use onChange to provide instant search feedback
                     // onChange={e => onSearch(e.target.value)}
                 />
-                <Button size="icon" className="absolute top-1/2 right-2 -translate-y-1/2 h-9 w-9 bg-brand-green hover:bg-brand-green/90">
+				<Button size="icon" className="absolute top-1/2 right-2 -translate-y-1/2 h-9 w-9 bg-green-opaque hover:bg-green-opaque text=white">
                     <Search className="h-5 w-5" />
                 </Button>
             </div>
 
 			{/* Categories Widget */}
-			<div className='bg-gray-50 p-6 rounded-lg shadow-md'>
+			<div className='bg-[#f5f5f5] p-6 rounded-lg shadow-md'>
 				<h3 className='text-xl font-bold text-brand-dark mb-4'>Categories</h3>
 				<div className='space-y-3'>
                     {/* MAP OVER THE CENTRALIZED `tourCategories` */}
@@ -62,7 +62,7 @@ export function MediaSidebar({
 			</div>
 
 			{/* Recent Posts Widget */}
-			<div className='bg-gray-50 p-6 rounded-lg shadow-md'>
+			<div className='bg-[#f5f5f5] p-6 rounded-lg shadow-md'>
 				<h3 className='text-xl font-bold text-brand-dark mb-4'>Recent Posts</h3>
 				<div className='space-y-4'>
                     {/* The image src should now be `heroImage` based on our new BlogPost type */}
@@ -93,7 +93,7 @@ export function MediaSidebar({
 			</div>
 
 			{/* Popular Tags Widget */}
-			<div className='bg-gray-50 p-6 rounded-lg shadow-md'>
+			<div className='bg-[#f5f5f5] p-6 rounded-lg shadow-md'>
 				<h3 className='text-xl font-bold text-brand-dark mb-4'>Popular Tags</h3>
 				<div className='flex flex-wrap gap-2'>
 					{popularTags.map((tag) => (
