@@ -54,7 +54,7 @@ export const newsPostsData: NewsPost[] = [
         ]
     },    
     {
-        id: "post-hill-tracking",
+        id: "post-2",
         slug: "guide-to-hill-tracking",
         title: "A Beginner's Guide to Hill Tracking",
         heroImage: "/assets/images/tours/news/blog-2-img.jpg",
