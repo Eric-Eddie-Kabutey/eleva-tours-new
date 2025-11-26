@@ -32,10 +32,10 @@ export const blogPostsData: BlogPost[] = [
         id: "post-1",
         slug: "tips-for-making-most-of-summer",
         title: "Get Tips For Making The Most Of Your Summer",
-        heroImage: "/blog/summer-hero.jpg",
+        heroImage: "/assets/images/tours/news/blog-1-img.jpg",
         author: "David Smith",
         date: new Date("2023-06-21"),
-        category: "Adventure", // <-- This now matches a tour category!
+        category: "Adventure",
         tags: [ "Lifestyle", "Tours", "Beach" ],
         content: [
             { type: 'paragraph', text: "Rapidlously repurpose leading edge growth strategies with just in time web readiness service. Objectively communicate timely meta services for synergistic initiatives functionalities." },
@@ -46,8 +46,8 @@ export const blogPostsData: BlogPost[] = [
             { type: 'paragraph', text: "Phosfluorescently grow cross-unit total linkage and timely partnerships. Efficiently fabricate standardized manufactured products for an expanded array of users." },
             {
                 type: 'images', images: [
-                    { src: '/blog/summer-img-1.jpg', alt: 'Woman with arms outstretched in a forest' },
-                    { src: '/blog/summer-img-2.jpg', alt: 'Aerial view of a beach with palm trees' },
+                    { src: '/assets/images/tours/news/blog-inner-1-img.jpg', alt: 'Woman with arms outstretched in a forest' },
+                    { src: '/assets/images/tours/news/blog-inner-2-img.jpg', alt: 'Aerial view of a beach with palm trees' },
                 ]
             },
             { type: 'paragraph', text: "Globally cultivate ubiquitous growth strategies before team building users. Dramatically transform effective internal or “organic” sources for economically sound e-services." },
@@ -58,10 +58,10 @@ export const blogPostsData: BlogPost[] = [
         id: "post-hill-tracking",
         slug: "guide-to-hill-tracking",
         title: "A Beginner's Guide to Hill Tracking",
-        heroImage: "/blog/hill-tracking-hero.jpg",
+        heroImage: "/assets/images/tours/news/blog-2-img.jpg",
         author: "Alex Anfantino",
         date: new Date("2023-05-15"),
-        category: "Hill Tracking", // <-- Another matching category!
+        category: "Hill Tracking",
         tags: [ "Adventure", "Destinations", "Parks" ],
         content: [
             { type: 'paragraph', text: "Rapidlously repurpose leading edge growth strategies with just in time web readiness service. Objectively communicate timely meta services for synergistic initiatives functionalities." },
@@ -72,8 +72,8 @@ export const blogPostsData: BlogPost[] = [
             { type: 'paragraph', text: "Phosfluorescently grow cross-unit total linkage and timely partnerships. Efficiently fabricate standardized manufactured products for an expanded array of users." },
             {
                 type: 'images', images: [
-                    { src: '/blog/summer-img-1.jpg', alt: 'Woman with arms outstretched in a forest' },
-                    { src: '/blog/summer-img-2.jpg', alt: 'Aerial view of a beach with palm trees' },
+                    { src: '/assets/images/tours/news/blog-inner-1-img.jpg', alt: 'Woman with arms outstretched in a forest' },
+                    { src: '/assets/images/tours/news/blog-inner-2-img.jpg', alt: 'Aerial view of a beach with palm trees' },
                 ]
             },
             { type: 'paragraph', text: "Globally cultivate ubiquitous growth strategies before team building users. Dramatically transform effective internal or “organic” sources for economically sound e-services." },
