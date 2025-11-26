@@ -32,7 +32,7 @@ export function BlogSidebar({ recentPosts }: { recentPosts: NewsPost[] }) {
 					{tourCategories.map((cat) => (
 						<Link
 							key={cat.slug}
-							href={`/blog?category=${cat.slug}`}
+							href={`/news?category=${cat.slug}`}
 							className='w-full flex justify-between items-center p-3 bg-white rounded-md shadow-sm hover:bg-brand-green/10 transition-colors text-left'>
 							<span>{cat.name}</span>
 							<ChevronRight className='h-5 w-5 text-gray-400' />
@@ -48,7 +48,7 @@ export function BlogSidebar({ recentPosts }: { recentPosts: NewsPost[] }) {
 					{recentPosts.map((post) => (
 						<Link
 							key={post.id}
-							href={`/blog/${post.slug}`}
+							href={`/news/${post.slug}`}
 							className='flex items-center gap-4 group'>
 							<div className='relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0'>
 								<Image
@@ -76,7 +76,7 @@ export function BlogSidebar({ recentPosts }: { recentPosts: NewsPost[] }) {
 				<h3 className='text-xl font-bold text-brand-dark mb-4'>Popular Tags</h3>
 				<div className='flex flex-wrap gap-2'>
 					{popularTags.map((tag) => (
-						<Link key={tag} href={`/blog?tag=${tag.toLowerCase()}`}>
+						<Link key={tag} href={`/news?tag=${tag.toLowerCase()}`}>
 							<Button variant='outline' className='rounded-full bg-white'>
 								{tag}
 							</Button>

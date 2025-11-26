@@ -110,10 +110,10 @@ export function Header() {
         animate={isNavSticky ? "visible" : "hidden"}
         className="fixed top-0 left-0 right-0 z-30 bg-white shadow-md"
       >
-        <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
+       
           {/* Logo is now inside the sticky nav, but for the main page we have a different layout */}
           {/* Main Logo for Sticky and Other pages */}
-           <div className="container max-w-6xl 2xl:max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
+        <div className="container max-w-6xl 2xl:max-w-7xl mx-auto h-24 flex justify-between items-center">
             {/* The diagonal background for the logo */}
             <div className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-white via-brand-green-light/50 to-transparent transform -skew-x-12 -translate-x-1/4" />
             <Link href="/" className="relative z-10">
@@ -161,7 +161,6 @@ export function Header() {
                     </Sheet>
                 </div>
             </div>
-        </div>
         </div>
       </motion.nav>
 

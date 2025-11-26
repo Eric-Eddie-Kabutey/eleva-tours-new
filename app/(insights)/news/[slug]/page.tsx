@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 				return (
 					<blockquote
 						key={index}
-						className='my-8 p-6 bg-gray-50 border-l-4 border-brand-green rounded-r-lg'>
+						className='my-8 p-6 bg-[#f5f5f5] border-l-4 border-green-opaque rounded-lg'>
 						<p className='text-xl italic text-gray-800'>
 							&quot;{block.data.text}&quot;
 						</p>
@@ -88,8 +88,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 		}
 	}
 
-	return (
-		// We don't need a PageHero for the blog detail page as it has its own hero image
+	return (		
 		<div className='bg-white'>
 			<div className='container max-w-6xl 2xl:max-w-7xl mx-auto py-16 px-4 mt-32'>
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
@@ -106,13 +105,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
 						<div className='flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 mb-2'>
 							<span className='flex items-center gap-1.5'>
-								<User size={14} /> {post.author}
+								<User size={14} className='text-green-opaque' /> {post.author}
 							</span>
 							<span className='flex items-center gap-1.5'>
-								<Calendar size={14} /> {format(post.date, 'dd MMMM, yyyy')}
+                                <Calendar size={14} className='text-green-opaque' /> {format(post.date, 'dd MMMM, yyyy')}
 							</span>
 							<span className='flex items-center gap-1.5'>
-								<Tag size={14} /> {post.category}
+                                <Tag size={14} className='text-green-opaque' /> {post.category}
 							</span>
 						</div>
 

@@ -29,14 +29,14 @@ export function MediaSidebar({
 	return (
 		<aside className='space-y-8'>			
             {/* Search Widget */}
-			<div className="relative bg-[#f5f5f5]">
+			<div className="relative bg-[#f5f5f5] py-8 px-6">
                 <Input 
                     placeholder="Enter Keyword" 
-					className="h-12 pl-4 pr-12"
+					className="h-12 pl-4 pr-12 bg-white"
                     // Use onChange to provide instant search feedback
                     // onChange={e => onSearch(e.target.value)}
                 />
-				<Button size="icon" className="absolute top-1/2 right-2 -translate-y-1/2 h-9 w-9 bg-green-opaque hover:bg-green-opaque text=white">
+				<Button size="icon" className="absolute top-1/2 right-2 -translate-y-1/2  h-[45px] w-10 bg-green-opaque hover:bg-green-opaque text-white">
                     <Search className="h-5 w-5" />
                 </Button>
             </div>
@@ -69,7 +69,7 @@ export function MediaSidebar({
 					{recentPosts.map((post) => (
 						<Link
 							key={post.id}
-							href={`/blog/${post.slug}`}
+							href={`/news/${post.slug}`}
 							className='flex items-center gap-4 group'>
 							<div className='relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0'>
 								<Image

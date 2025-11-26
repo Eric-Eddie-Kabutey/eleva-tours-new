@@ -56,7 +56,7 @@ export function TourGridClient({ tours }: { tours: Tour[] }) {
   }, [tours]);
 
   return (
-    <div className="container max-w-6xl 2xl:max-w-7xl mx-auto py-16 px-4">
+    <div className="container max-w-6xl 2xl:max-w-7xl mx-auto py-16">
         {/* Sorting Dropdown */}
         <div className="flex justify-end mb-8">
             <Select onValueChange={handleSortChange} defaultValue="default">

@@ -62,7 +62,7 @@ export default async function Tours({ params }: ToursProps) {
             />
 
             {/* You could add a server-rendered description here */}
-            <div className='container max-w-6xl 2xl:max-w-7xl mx-auto pt-16 text-center'>
+            <div className='container max-w-6xl 2xl:max-w-7xl mx-auto pt-16 px-4 text-center'>
                 <h2 className='text-3xl font-bold'>{`Discover Our ${pageTitle}`}</h2>
                 <p className='mt-2 text-lg text-gray-600 max-w-2xl mx-auto'>
                     {`Explore our curated collection of ${slug} travel experiences, designed for unforgettable memories.`}

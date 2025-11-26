@@ -68,7 +68,7 @@ export default async function NewsPage({
 				imageUrl='/assets/images/page-banner-img.jpg'
 			/>
 
-			<div className='container max-w-6xl 2xl:max-w-7xl mx-auto py-16 px-4 md:px-8'>
+			<div className='container max-w-6xl 2xl:max-w-7xl mx-auto py-16 px-4'>
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
 					{/* Main Content (Post List) */}
 					<div className='lg:col-span-2 space-y-8'>
@@ -77,7 +77,7 @@ export default async function NewsPage({
 								<BlogPostCard key={post.id} post={post} />
 							))
 						) : (
-							<div className='text-center py-20 bg-gray-50 rounded-lg'>
+							<div className='text-center py-20 bg-[#f5f5f5] rounded-lg'>
 								<h3 className='text-2xl font-semibold text-brand-dark'>
 									No Posts Found
 								</h3>
